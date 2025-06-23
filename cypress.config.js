@@ -6,6 +6,7 @@ const { preprendTransformerToOptions } = require("@badeball/cypress-cucumber-pre
 
 async function setupNodeEvents(on, config) {
   await addCucumberPreprocessorPlugin(on, config);
+  require('cypress-mochawesome-reporter/plugin')(on);
 
   on(
     "file:preprocessor",
@@ -20,6 +21,14 @@ module.exports = defineConfig({
   defaultCommandTimeout: 6000,
   env: {
     url: "https://rahulshettyacademy.com",
+  },
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'custom-title',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
   },
   e2e: {
     setupNodeEvents, 

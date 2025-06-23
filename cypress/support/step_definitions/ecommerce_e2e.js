@@ -19,7 +19,7 @@ When('I added items to the cart', function() {
 
 When('Validate the total price limit', function() {
     this.cartPage.sumOfProducts().then(function(sum){
-      expect(sum).to.be.lessThan(200000);
+      expect(sum).to.be.lessThan(100000);
     })
 })
 
